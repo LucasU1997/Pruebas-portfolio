@@ -44,9 +44,11 @@
                 <h2>About me</h2>
                 
                 <div class="about-me">
-                
-                    <img src="img/banner.png" alt="">
-                
+                    
+                    <div class="img">
+                        <img src="img/banner.png" alt="">
+                    </div>
+                    
                     <div class="experience">
                     
                         <p>
@@ -83,8 +85,8 @@
                     
                 </div>
                 
-                <div class="button-cv">
-                    <a class="button" href="Resume.pdf" target="_blank">Ver curriculum</a>
+                <div class="below-button">
+                    <a class="button" href="Resume.pdf" target="_blank">Resume</a>
                 </div>
                     
             </section>
@@ -124,6 +126,8 @@
                             $edad = $hoy->diff($fecha_nacimiento);?>
                             My name is <strong>Lucas Ulibarri</strong>, I am <?php echo $edad->y." years old";?>. Realicé mis estudios la Universidad Argentina de la Empresa, donde estudie la Licenciatura en Diseño Multimedia y de Interacción desde el año 2017 hasta el 2019.
                         </p>
+                        
+                        
 
                     
                     </div>
@@ -139,7 +143,10 @@
                 </div> 
                    
             </section>
+
             
+            
+<!---------------------------------------------------------Footer--------------------------------------------------------->            
             <footer>
             
                 <?php
@@ -150,8 +157,7 @@
             
             
         </div>    
-     
-
+        
      
      </body>
 </html>

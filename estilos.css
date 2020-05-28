@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     color: #474747;
+    box-sizing: border-box;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     scroll-behavior: smooth;
@@ -12,16 +13,17 @@ body{
     width: 100%;
     display: flex;
     align-items: flex-start;
+    cursor: url(img/circle-regular.svg), auto;
 }
 
 
 header{
     background-color: #fff;
-    box-shadow: 1px 1px 10px #00000090;
+    box-shadow: 1px 1px 10px #a0a0a090;
     padding: 90px 20px 0;
     z-index: 999;
-    position: sticky;
-    position: -webkit-sticky;
+    position: fixed;
+    position: -webkit-fixed;
     align-self: flex-start;
     top: 0;
     width: 20%;
@@ -32,15 +34,19 @@ header{
 
 .body{
     width: 80%;
+    margin-left: 20%;
 }
 
 
 
 section:not(.banner){
-    padding: 0px 50px;
-    margin: 100px 0;
+    padding: 50px 50px 0;
+    margin: 50px 0;
 } 
 
+section.interna{
+    padding:0 50px;
+}
 
 
 h1,h2,h3,h4,h5,h6{
@@ -67,19 +73,44 @@ h3{
 }
 
 h4{
+    font-size: 18px;
+}
+
+h5{
+    font-size: 14px;
     color: #fff;
 }
 
 
+#btn-menu{
+    display: none;
+}
+
+#btn-menu + label{
+    display: none;
+}
+
+
+.menu{
+    display: flex;
+    flex-direction: column;
+}
 
 
 a.nav{
     text-decoration: none;
-    display: block;
     font-family: 'Montserrat', sans-serif; 
     font-size: 18px;
     text-transform: uppercase;
     margin: 0px 0px 30px 10px;
+    transition: font-weight .2s, letter-spacing .2s;
+}
+
+
+a.nav:hover{
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: font-weight .2s, letter-spacing .2s;
 }
 
 
@@ -102,12 +133,19 @@ a.nav{
 }
 
 
-.about-me img{
+.about-me .img{
     height: 350px;
     width: 45%;
     margin-right: 5%;
+}
+
+
+.about-me .img img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
+
 
 .experience{
     width: 50%;
@@ -119,7 +157,7 @@ a.nav{
 }
 
 
-.button-cv{
+.below-button{
     text-align: center;
     color:#fff;
     margin: 50px auto;
@@ -157,27 +195,25 @@ a.nav{
 
 .card{
     height: 250px;
-    width: 30%;
+    width: calc((100% - 30px)/3);
     margin-bottom: 100px;
 }
 
 .card img{
     height: 100%;
     width: 100%;
+    object-fit: cover;
+    object-position: top;
 }
 
 .card a.button{
     display: flex;
-    width: 100%;
     margin: 0;
     padding: 20px 0;
     text-transform: none;
     font-weight: 500;
 }
 
-.card a.button:hover{
-    width: calc(100% - 4px);
-}
 
 
 .contact-information{
@@ -189,9 +225,17 @@ a.nav{
     width: 45%;
 }
 
+.input-form{
+    margin-bottom: 20px;
+}
+
+.input-form .button{
+    width:100%;
+}
 
 
-input:not(.button), textarea{
+
+input, textarea{
     width: 100%;
     height: 40px;
     font-size: 14px;
@@ -209,8 +253,19 @@ textarea{
     max-width: 100%;
     min-width: 100%;
     min-height: 100px;
-
 }
+
+
+.form-confirmation{
+    margin-top: 30px;
+}
+
+
+a.email{
+    text-decoration: underline;
+}
+
+
 
 
 footer{
@@ -233,7 +288,8 @@ footer{
 .fa {
     padding: 15px;
     font-size: 30px;
-    width: 15px;
+    width: 50px;
+    height: 50px;
     margin: 0 10px;
     background-color: #fff;
     border-radius: 50%;
@@ -242,13 +298,339 @@ footer{
     border: 2px solid #fff;
 }
 
-.fa-dribbble{
-    font-size: 20px;
+
+.fa:not(.fa-bars):hover,.fa:not(.fa-bars):focus{
+    background-color: #293234;
+    color: #fff;
 }
 
 
-.fa:hover,.fa:focus{
+/*Internas--------*/
+
+
+.main-container{
+    margin: 50px 0 10px;
+}
+
+.col-2{
+    column-count: 2;
+    column-gap: 1.5rem;
+    column-fill: auto;
+    width: 100%;
+    margin: 10px 0 70px;
+}
+
+
+.gallery{
+    margin: 70px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gallery img{
+    width: calc((100% - 30px) / 3);
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+}
+
+
+
+
+/*Tablet---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+@media screen and (max-width: 991px), (max-device-width: 991px){
     
-    background-color: #293234;
-    color: #fff;
+    
+   /*Header-------*/
+    
+    h1{
+        font-size: 35px;
+        line-height: 30px;
+    }
+    
+    .logo{
+        margin-bottom: 40px;
+    }
+    
+    a.nav{
+        margin: 0px 0px 30px 0px;
+    }
+    
+    
+    /*About me-----*/
+    
+    .about-me .img{
+        width: 100%;
+        margin: 0 0 30px;
+    }
+    
+    .experience{
+        width: 100%;
+    }
+    
+    /*Portfolio------*/
+    
+    .card{
+        width: calc((100% - 20px)/2);
+    }
+    
+    
+    /*Contact------*/
+    
+    .contact-information{
+        width: 45%;
+    }
+    
+    .form{
+        width: 50%;
+    }
+    
+    
+    /*Internas------*/
+    
+    
+    .col-2{
+        column-count: 1;
+    }
+    
+    .gallery img{
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    
+}
+
+
+/*Mobile---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+@media screen and (max-width: 768px), (max-device-width: 768px){
+    
+    body{
+        display: block;
+    }
+    
+    header{
+        width: calc(100% - 40px);
+        height: 100px;
+        padding: 40px 20px;
+        box-sizing: content-box;
+        display: flex;
+        justify-content: space-between;
+        position: sticky;
+        position: -webkit-sticky;
+    }
+    
+    h1{
+        font-size: 40px;
+    }
+    
+    h2{
+        font-size: 60px;
+    }
+    
+    h3{
+        font-size: 46px;
+    }
+    
+    p{
+        font-size: 26px;
+    }
+    
+    .a-logo{
+        align-self: center;
+    }
+    
+    .logo{
+        margin: 0;
+    }
+    
+    
+    #btn-menu + label{
+        display: block;
+        align-self: center;    
+    }
+    
+    
+    .fa{
+        font-size: 50px!important;
+        padding: 0;
+    }
+    
+    #btn-menu:checked ~ .menu{
+        margin-top: 0;
+        transition: all .5s;
+    }
+    
+    
+    .menu{
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        padding: 80px 0;
+        left: 0;
+        top: 120px;
+        box-shadow: 0px 4px 5px #a0a0a090;
+        z-index: -1;
+        text-align: center;
+        margin-top: -1000px;
+        transition: all .5s;
+    }
+    
+    
+    a.nav{
+        margin: 0 0 80px 0;
+        font-size: 40px;
+    }
+    
+    a.nav:last-child{
+        margin:0;
+    }
+    
+    
+    .body{
+        width: 100%;
+        margin: 0;
+    }
+    
+    
+    .banner img{
+        height:70%;
+    }
+    
+    
+    section:not(.banner){
+        padding: 220px 40px 0;
+        margin: 0;
+    }
+    
+    section.interna{
+        padding-top:100px;
+    }
+    
+    
+    .about-me .img{
+        width: 100%;
+        height: 550px;
+    }
+    
+    .about-me .img img{
+        height: 550px;
+    }
+    
+    
+    
+    .experience, .skills{
+        width: 100%;
+        margin: 50px 0;
+    }
+    
+    .experience h3, .skills h3{
+        margin-bottom: 30px;
+    }
+    
+    
+    .below-button{
+        margin: 100px auto;
+    }
+    
+    
+    .button{
+        display:block;
+        font-size: 35px;
+        padding: 40px 0;
+    }
+    
+    
+    .card{
+        width: 100%;
+        height: 450px;
+        margin-bottom: 200px;
+    }
+    
+    
+    .card a.button{
+        padding: 40px 0;
+    }
+    
+    
+    .contact-information{
+        width: 100%;
+        margin: 0 0 100px;
+    }
+    
+    .input-form{
+        margin-bottom:50px;
+    }
+    
+    .input-form label{
+        font-size: 26px;
+    }
+    
+    input, textarea{
+        width: 100%;
+        height: 100px;
+        font-size: 26px;
+    }
+    
+    textarea{
+        min-height: 200px;    
+    }
+    
+    
+    .form{
+        width: 100%;
+    }
+    
+    
+    footer{
+        display: block;
+        padding: 60px 40px 100px;
+    }
+    
+    .footer-text{
+        margin: 20px 0 70px;
+    }
+    
+    .footer-text p, h5{
+        font-size: 30px;
+    }
+    
+    
+    .footer-media{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    
+    .footer-icon{
+        font-size: 80px!important;
+        padding: 30px;
+        height: 150px;
+        width: 150px;
+    }
+    
+    
+    
+    
+    /*Internas*/
+    
+    
+    .col-2{
+        column-count: 1;
+        margin: 50px 0 100px;
+    }
+    
+    .gallery img{
+        width: 100%;
+        height: auto;
+        max-height:500px;
+        margin-bottom: 20px;
+    }
+    
 }
